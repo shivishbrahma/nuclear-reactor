@@ -1,34 +1,46 @@
 {
-  "name": "web-compiler",
-  "version": "0.1.0",
-  "private": true,
-  "dependencies": {
-    "@testing-library/jest-dom": "^4.2.4",
-    "@testing-library/react": "^9.5.0",
-    "@testing-library/user-event": "^7.2.1",
-    "react": "^16.13.1",
-    "react-dom": "^16.13.1",
-    "react-scripts": "3.4.3"
-  },
-  "scripts": {
-    "start": "react-scripts start",
-    "build": "react-scripts build",
-    "test": "react-scripts test",
-    "eject": "react-scripts eject"
-  },
-  "eslintConfig": {
-    "extends": "react-app"
-  },
-  "browserslist": {
-    "production": [
-      ">0.2%",
-      "not dead",
-      "not op_mini all"
-    ],
-    "development": [
-      "last 1 chrome version",
-      "last 1 firefox version",
-      "last 1 safari version"
-    ]
-  }
+	"name": "web-compiler",
+	"version": "0.1.0",
+	"private": true,
+	"dependencies": {
+		"@testing-library/jest-dom": "^4.2.4",
+		"@testing-library/react": "^9.5.0",
+		"@testing-library/user-event": "^7.2.1",
+		"bootstrap": "^4.5.3",
+		"codemirror": "^5.58.1",
+		"node-minify": "^3.6.0",
+		"node-sass": "^4.14.1",
+		"react": "^16.13.1",
+		"react-codemirror": "^1.0.0",
+		"react-dom": "^16.13.1",
+		"react-scripts": "3.4.3",
+		"sass": "^1.27.0",
+		"sass-loader": "^10.0.3",
+		"webpack": "^5.1.0"
+	},
+	"scripts": {
+		"start": "react-scripts start",
+		"build": "react-scripts build",
+		"test": "react-scripts test",
+		"eject": "react-scripts eject",
+		"scss-compile": "node-sass assets/scss/app.scss public/index.css --importer node_modules/node-sass-import",
+		"scss-watch": "node-sass assets/scss/app.scss public/index.css --importer node_modules/node-sass-import --watch",
+		"js-minify": "",
+		"css-minify": ""
+	},
+	"eslintConfig": {
+		"extends": "react-app"
+	},
+	"browserslist": {
+		"production": [
+			">0.2%",
+			"not dead",
+			"not op_mini all"
+		],
+		"development": [
+			"last 1 chrome version",
+			"last 1 firefox version",
+			"last 1 safari version"
+		]
+	}
 }
