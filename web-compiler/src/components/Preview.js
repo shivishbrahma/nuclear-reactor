@@ -1,17 +1,16 @@
 import React from "react";
 // import PropTypes from "prop-types";
 
-export default function Preview({ settings, config }) {
-	console.log(settings.code);
+export default function Preview({ props, config }) {
 	return (
 		<div className="previewWrap col-6">
 			<div className="titleBar">
 				<span className="title">Preview</span>
 			</div>
 			<div
-				className={settings.language + " w-100"}
+				className={props.language + " w-100"}
 				dangerouslySetInnerHTML={{
-					__html: config.renderer[settings.language](settings.code),
+					__html: config.settings[props.language].render(props.code),
 				}}
 				id="preview"
 			></div>

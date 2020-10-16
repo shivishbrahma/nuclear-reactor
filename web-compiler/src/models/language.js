@@ -8,8 +8,9 @@ class Language {
 		this.language = language;
 		this.defValue = defValue;
 		this.config = config;
-		this.renderer = renderer(config);
+		this.renderer = renderer;
 	}
+	init() {}
 	render(code) {}
 }
 

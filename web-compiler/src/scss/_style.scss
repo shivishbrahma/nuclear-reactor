@@ -3,12 +3,14 @@
 	border: 1px solid $black;
 	padding: 0;
 	min-height: calc(100vh - 7rem);
+
 	#editor {
 		padding: 0.5rem 0.75rem;
 		border: none;
 		height: calc(100% - 2.5rem);
 		overflow-wrap: break-word;
 		resize: none;
+		overflow: scroll;
 	}
 }
 
@@ -26,12 +28,13 @@
 		&.markdown {
 			color: $black;
 			a {
+				color: $color2;
 			}
 			code {
 				padding: 0.25rem;
 				border-radius: 0.25rem;
-				color: $vermillion;
-				background-color: lighten($color3, 50%);
+				// color: $vermillion;
+				// background-color: lighten($color3, 50%);
 			}
 			blockquote {
 				padding: 0.75rem 1.5rem;
@@ -39,6 +42,7 @@
 				border-left: 3px solid $color3;
 			}
 			pre {
+				font-family: SFMono-Regular, Consolas, Liberation Mono, Menlo, monospace;
 				padding: 0.5rem;
 				border-radius: 0.25rem;
 				border: 1px solid lighten($black, 50%);
@@ -52,6 +56,24 @@
 			}
 			table {
 				width: 100%;
+				border-spacing: 0;
+				border-collapse: collapse;
+				td,
+				th {
+					padding: 0;
+				}
+			}
+			kbd {
+				display: inline-block;
+				padding: 3px 5px;
+				font: 11px SFMono-Regular, Consolas, Liberation Mono, Menlo, monospace;
+				line-height: 10px;
+				color: #444d56;
+				vertical-align: middle;
+				background-color: #fafbfc;
+				border: 1px solid #d1d5da;
+				border-radius: 3px;
+				box-shadow: inset 0 -1px 0 #d1d5da;
 			}
 			img {
 				display: inline-block;

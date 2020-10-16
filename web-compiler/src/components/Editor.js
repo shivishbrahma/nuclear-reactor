@@ -1,4 +1,4 @@
-import React, { Component } from "react";
+import React from "react";
 // import PropTypes from "prop-types";
 // import CodeMirror from "react-codemirror";
 // import CodeMirror from "codemirror";
@@ -38,15 +38,14 @@ import React, { Component } from "react";
 // 	}
 // }
 
-export default function Editor({ settings, config, setSettings }) {
-	const handleChange = (e) =>
-		setSettings({ ...settings, code: e.target.value });
+export default function Editor({ props, config, setProps }) {
+	const handleChange = (e) => setProps({ ...props, code: e.target.value });
 
-	const updateCode = (newCode) => setSettings({ code: newCode });
+	// const updateCode = (newCode) => setprops({ code: newCode });
 
-	const options = {
-		lineNumbers: true,
-	};
+	// const options = {
+	// 	lineNumbers: true,
+	// };
 
 	return (
 		<div className="editorWrap col-6">
@@ -57,12 +56,12 @@ export default function Editor({ settings, config, setSettings }) {
 				className="w-100"
 				name="editor"
 				id="editor"
-				value={settings.code}
+				value={props.code}
 				onChange={handleChange}
 			></textarea>
 
 			{/* <CodeMirror
-				value={settings.code}
+				value={props.code}
 				onChange={updateCode}
 				options={options}
 			/> */}

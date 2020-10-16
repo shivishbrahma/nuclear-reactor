@@ -1,61 +1,39 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import Editor from "./components/Editor";
-import Preview from "./Preview";
+import Preview from "./components/Preview";
 
-import MarkdownIt from "markdown-it";
-import MarkdownEmoji from "markdown-it-emoji";
-// import Twemoji from "twemoji";
-
-import hljs from "highlight.js/lib/core";
-import javascript from "highlight.js/lib/languages/javascript";
+// Language
+import Markdown from "./languages/markdown";
+// import Latex from "./languages/latex";
 
 // SCSS
 import "./scss/App.scss";
 
 function App() {
-	const markdown = MarkdownIt({
-		html: true,
-		linkify: true,
-		// breaks: true,
-		typographer: true,
-		quotes: "“”‘’",
-		highlight: function (str, lang) {
-			if (lang && hljs.getLanguage(lang)) {
-				try {
-					return hljs.highlight(lang, str).value;
-				} catch (err) {
-					console.error(err);
-				}
-			}
-
-			return ""; // use external default escaping
-		},
-	}).use(MarkdownEmoji);
-	// markdown.renderer.rules.emoji = function (token, idx) {
-	// 	return Twemoji.parse(token[idx].content);
-	// };
 	const config = {
 		tools: [],
 		languages: ["markdown", "latex"],
-		renderer: {
-			markdown: (code) => markdown.render(code),
-		},
-		default: {
-			markdown: `# Hello World \n## Hi Kolkata`,
+		settings: {
+			markdown: Markdown,
+			// latex: Latex,
 		},
 	};
-	const settings = {
+	const properties = {
 		language: "markdown",
 		code: "Hello World",
 	};
-	settings.code = config.default[settings.language];
-	const [prop, setProp] = useState(settings);
+	properties.code = config.settings[properties.language].defValue;
+	const [props, setProps] = useState(properties);
+
+	useEffect(() => {
+		document.title = `Compiler Irene - (${properties.language})`;
+	});
 	return (
 		<>
 			<div className="App container-fluid">
 				<div className="row">
-					<Editor settings={prop} config={config} setSettings={setProp} />
-					<Preview settings={prop} config={config} setSettings={setProp} />
+					<Editor props={props} config={config} setProps={setProps} />
+					<Preview props={props} config={config} setProps={setProps} />
 				</div>
 			</div>
 
