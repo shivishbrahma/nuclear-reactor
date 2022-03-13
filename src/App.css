@@ -1,0 +1,15 @@
+.App {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	height: 100vh;
+	font-family: 'Tlw Typewriter', 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    font-size: 2rem;
+    /* color: #fff;
+    background: #161925; */
+}
+
+body {
+    margin: 0;
+    padding: 0;
+}
