@@ -1,0 +1,45 @@
+.MarkdownEditor {
+	display: flex;
+	height: 100%;
+	width: 100%;
+	overflow: hidden;
+}
+
+.MarkdownEditor__Editor,
+.MarkdownEditor__Preview {
+	flex: 1 auto;
+}
+
+.MarkdownEditor .titleBar {
+	width: calc(100% - 1.25rem);
+	height: 3rem;
+	padding: 0.5rem 1rem;
+    display: flex;
+    align-items: center;
+	background-color: #391a42;
+	color: #fff;
+}
+
+.MarkdownEditor__Editor__Textarea {
+	width: calc(100% - 1.25rem);
+	height: calc(100% - 5rem);
+	border: none;
+	resize: none;
+	padding: 0.5rem;
+	background-color: #57659c;
+	color: #fff;
+	font-family: 'Tlw Typewriter', 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+	font-size: 1rem;
+	line-height: 1.5;
+	overflow: auto;
+}
+
+.MarkdownEditor__Preview__Content {
+	width: calc(100% - 1.25rem);
+	height: calc(100% - 5rem);
+	padding: 0.5rem;
+	font-family: 'Tlw Typewriter', 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+	font-size: 1rem;
+	line-height: 1.5;
+	overflow: auto;
+}

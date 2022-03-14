@@ -9,6 +9,6 @@ No external library required.
 ## Files
 
 - Typewriter.jsx
-- Typewriter.scss
+- Typewriter.css
 
 Visit the blog @ <https://dev.to/shivishbrahma/designing-a-typewriter-react-component-3kea>

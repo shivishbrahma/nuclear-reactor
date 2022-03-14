@@ -2,4 +2,5 @@
 
 ## React JS Components
 
-- 
+- Typewriter
+- Activity Calendar

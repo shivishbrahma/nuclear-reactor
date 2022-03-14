@@ -1,7 +1,10 @@
+import Typewriter from './Typewriter/Typewriter';
 import ActivityCalendar from './ActivityCalendar/ActivityCalendar';
 import { createCalendarTheme } from './ActivityCalendar/utils';
+import { Routes, Route, BrowserRouter as Router } from 'react-router-dom';
 import './App.css';
-// import Typewriter from './Typewriter/Typewriter';
+import Home from './Home';
+import MarkdownEditor from './MarkdownEditor/MarkdownEditor';
 
 const DEFAULT_THEME = createCalendarTheme('#ca3cff'),
 	calendarData = [
@@ -1830,12 +1833,67 @@ const DEFAULT_THEME = createCalendarTheme('#ca3cff'),
 			date: '2022-12-31',
 			level: 0,
 		},
-	];
+	],
+	markdownContent = `Heading
+=======
+
+Sub-heading
+-----------
+
+# Alternative heading #
+
+Paragraphs are separated 
+by a blank line.
+
+Two spaces at the end of a line  
+produce a line break.
+
+Text attributes _italic_, **bold**, \`monospace\`.
+
+Horizontal rule:
+
+---
+
+Bullet lists nested within numbered list:
+
+  1. fruits
+     * apple
+     * banana
+  2. vegetables
+     - carrot
+     - broccoli
+
+A [link](http://example.com).
+
+![Image](Icon-pictures.png "icon")
+
+> Markdown uses email-style
+characters for blockquoting.
+>
+> Multiple paragraphs need to be prepended individually.
+
+Most inline <abbr title="Hypertext Markup Language">HTML</abbr> is supported.
+     
+    `;
 function App() {
 	return (
 		<div className="App">
-			<ActivityCalendar data={calendarData} theme={DEFAULT_THEME} />
-			{/* <Typewriter text={["Typewriter Effect", "A React Component"]}/> */}
+			<Router basename={process.env.PUBLIC_URL}>
+				<Routes>
+					<Route path="/" element={<Home />} />
+					<Route
+						path="/typewriter"
+						exact
+						element={<Typewriter text={['Typewriter Effect', 'A React Component']} />}
+					/>
+					<Route
+						path="/activity-calendar"
+						exact
+						element={<ActivityCalendar data={calendarData} theme={DEFAULT_THEME} />}
+					/>
+					<Route path="/markdown-editor" exact element={<MarkdownEditor content={markdownContent} />} />
+				</Routes>
+			</Router>
 		</div>
 	);
 }
