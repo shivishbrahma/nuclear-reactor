@@ -1,11 +1,13 @@
+/* eslint-disable react-hooks/exhaustive-deps */
 import Typewriter from './Typewriter/Typewriter';
 import ActivityCalendar from './ActivityCalendar/ActivityCalendar';
 import { createCalendarTheme } from './ActivityCalendar/utils';
-import { Routes, Route, BrowserRouter as Router } from 'react-router-dom';
+import React from 'react';
 import './App.css';
 import Home from './Home';
 import MarkdownEditor from './MarkdownEditor/MarkdownEditor';
 import ToDoApp from './ToDoApp/ToDoApp';
+import CenterScreen from './CenterScreen';
 
 const DEFAULT_THEME = createCalendarTheme('#ca3cff'),
 	calendarData = [
@@ -1876,26 +1878,57 @@ characters for blockquoting.
 Most inline <abbr title="Hypertext Markup Language">HTML</abbr> is supported.
      
     `;
+
+const useHash = () => {
+	const [hash, setHash] = React.useState(() => (window.location.hash || '#/').substring(1));
+
+	const hashChangeHandler = React.useCallback(() => {
+		// console.log('hashChangeHandler', (window.location.hash || '#/').substring(1));
+		setHash((window.location.hash || '#/').substring(1));
+	}, []);
+
+	React.useEffect(() => {
+		window.addEventListener('hashchange', hashChangeHandler);
+		return () => {
+			window.removeEventListener('hashchange', hashChangeHandler);
+		};
+	}, []);
+
+	const updateHash = React.useCallback(
+		(newHash) => {
+			// console.log('updateHash', newHash, hash);
+			if (newHash !== hash) window.location.hash = newHash;
+		},
+		[hash]
+	);
+
+	return [hash, updateHash];
+};
+
 function App() {
+	const [hash, setLocationHash] = useHash();
+	React.useEffect(() => {
+		setLocationHash('/');
+	}, []);
 	return (
 		<div className="App">
-			<Router basename={process.env.PUBLIC_URL}>
-				<Routes>
-					<Route path="/" element={<Home />} />
-					<Route
-						path="/typewriter"
-						exact
-						element={<Typewriter text={['Typewriter Effect', 'A React Component']} />}
-					/>
-					<Route
-						path="/activity-calendar"
-						exact
-						element={<ActivityCalendar data={calendarData} theme={DEFAULT_THEME} />}
-					/>
-					<Route path="/markdown-editor" exact element={<MarkdownEditor content={markdownContent} />} />
-					<Route path="/todo-app" exact element={<ToDoApp />} />
-				</Routes>
-			</Router>
+			{hash === '/' && (
+				<CenterScreen>
+					<Home setLocationHash={setLocationHash} />
+				</CenterScreen>
+			)}
+			{hash === '/typewriter' && (
+				<CenterScreen>
+					<Typewriter text={['Typewriter Effect', 'A React Component']} />
+				</CenterScreen>
+			)}
+			{hash === '/activity-calendar' && (
+				<CenterScreen>
+					<ActivityCalendar data={calendarData} theme={DEFAULT_THEME} />
+				</CenterScreen>
+			)}
+			{hash === '/markdown-editor' && <MarkdownEditor content={markdownContent} />}
+			{hash === '/todo-app' && <ToDoApp />}
 		</div>
 	);
 }

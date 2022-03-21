@@ -6,6 +6,6 @@
 - Activity Calendar
 - Markdown Editor
 
-## React JS App
+## React JS Apps
 
 - ToDo App
