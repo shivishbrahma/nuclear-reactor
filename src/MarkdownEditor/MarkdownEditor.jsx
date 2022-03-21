@@ -1,5 +1,6 @@
 import React from 'react';
 import markdownIt from 'markdown-it';
+import { ImEnlarge2, ImShrink2 } from 'react-icons/im';
 import './MarkdownEditor.css';
 
 export default function MarkdownEditor({ content: contentProps }) {
@@ -34,7 +35,7 @@ export default function MarkdownEditor({ content: contentProps }) {
 					<div className="titleBar">
 						Editor
 						<div style={{ marginLeft: 'auto' }} onClick={handleEditorMaximize}>
-							{editorMaximized ? <span>-&gt;&lt;-</span> : <span>&lt;--&gt;</span>}
+							{editorMaximized ? <ImShrink2 /> : <ImEnlarge2 />}
 						</div>
 					</div>
 					<textarea
@@ -52,7 +53,7 @@ export default function MarkdownEditor({ content: contentProps }) {
 					<div className="titleBar">
 						Preview
 						<div style={{ marginLeft: 'auto' }} onClick={handlePreviewMaximize}>
-							{previewMaximized ? <span>-&gt;&lt;-</span> : <span>&lt;--&gt;</span>}
+							{previewMaximized ? <ImShrink2 /> : <ImEnlarge2 />}
 						</div>
 					</div>
 					<div

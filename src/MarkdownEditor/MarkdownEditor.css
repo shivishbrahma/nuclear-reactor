@@ -1,32 +1,31 @@
 .MarkdownEditor {
 	display: flex;
+    gap: 0.5rem;
 	height: 100%;
-	width: 100%;
-	overflow: hidden;
 }
 
 .MarkdownEditor__Editor,
 .MarkdownEditor__Preview {
-	flex: 1 auto;
+	flex: 1;
+    border: 1px solid var(--black);
 }
 
 .MarkdownEditor .titleBar {
-	width: calc(100% - 1.25rem);
 	height: 3rem;
 	padding: 0.5rem 1rem;
-    display: flex;
-    align-items: center;
-	background-color: #391a42;
+	display: flex;
+	align-items: center;
+	background-color: var(--black);
 	color: #fff;
 }
 
 .MarkdownEditor__Editor__Textarea {
-	width: calc(100% - 1.25rem);
-	height: calc(100% - 5rem);
+	width: 100%;
+	height: calc(100% - 3.5rem);
 	border: none;
 	resize: none;
 	padding: 0.5rem;
-	background-color: #57659c;
+	background-color: var(--pink);
 	color: #fff;
 	font-family: 'Tlw Typewriter', 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
 	font-size: 1rem;
@@ -35,8 +34,8 @@
 }
 
 .MarkdownEditor__Preview__Content {
-	width: calc(100% - 1.25rem);
-	height: calc(100% - 5rem);
+	width: 100%;
+	height: calc(100% - 3.5rem);
 	padding: 0.5rem;
 	font-family: 'Tlw Typewriter', 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
 	font-size: 1rem;
