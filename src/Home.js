@@ -14,7 +14,11 @@ export default function Home() {
         {
             name: 'MarkdownEditor',
             link: '/markdown-editor',
-        }
+        },
+        {
+            name: 'TodoApp',
+            link: '/todo-app',
+        },
 	];
 	return (
 		<section>

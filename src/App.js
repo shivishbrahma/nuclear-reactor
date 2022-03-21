@@ -5,6 +5,7 @@ import { Routes, Route, BrowserRouter as Router } from 'react-router-dom';
 import './App.css';
 import Home from './Home';
 import MarkdownEditor from './MarkdownEditor/MarkdownEditor';
+import ToDoApp from './ToDoApp/ToDoApp';
 
 const DEFAULT_THEME = createCalendarTheme('#ca3cff'),
 	calendarData = [
@@ -1892,6 +1893,7 @@ function App() {
 						element={<ActivityCalendar data={calendarData} theme={DEFAULT_THEME} />}
 					/>
 					<Route path="/markdown-editor" exact element={<MarkdownEditor content={markdownContent} />} />
+					<Route path="/todo-app" exact element={<ToDoApp />} />
 				</Routes>
 			</Router>
 		</div>
