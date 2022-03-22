@@ -6,10 +6,10 @@ import { FaPlusCircle } from 'react-icons/fa';
 
 export default function ToDoApp() {
 	const [todos, setTodos] = React.useState([]);
+	const [hideTodos, setHideTodos] = React.useState(true);
 	const [showForm, setShowForm] = React.useState(false);
 	const [searchText, setSearchText] = React.useState('');
 	const [currentTodo, setCurrentTodo] = React.useState({});
-	const [hideTodos, setHideTodos] = React.useState(true);
 
 	const maxDisplayTodos = 5;
 
@@ -31,41 +31,41 @@ export default function ToDoApp() {
 				id: 2,
 			},
 			{
-				title: 'Create a React Component',
+				title: 'Learn Vue',
 				description:
-					'Lorem ipsum dolor sit, amet consectetur adipisicing elit. Veritatis esse aut similique reprehenderit fuga cupiditate porro. Nostrum, ipsam perferendis! Fuga nisi nostrum odit nulla quia, sint harum eligendi recusandae dolore!',
+					'Far far away, behind the word mountains, far from the countries Vokalia and Consonantia, there live the blind texts. Separated they live in Bookmarksgrove right at the coast of the Semantics, a large language ocean. A small river named Duden flows by their place and supplies it with the necessary.',
 				status: 0,
 				hide: false,
 				id: 3,
 			},
 			{
-				title: 'Create a React Component',
+				title: 'Learn Angular',
 				description:
-					'Lorem ipsum dolor sit, amet consectetur adipisicing elit. Veritatis esse aut similique reprehenderit fuga cupiditate porro. Nostrum, ipsam perferendis! Fuga nisi nostrum odit nulla quia, sint harum eligendi recusandae dolore!',
+					'A wonderful serenity has taken possession of my entire soul, like these sweet mornings of spring which I enjoy with my whole heart. I am alone, and feel the charm of existence in this spot, which was created for the bliss of souls like mine. I am so happy, my',
 				status: 0,
 				hide: false,
 				id: 4,
 			},
 			{
-				title: 'Create a React Component',
+				title: 'Vue Typewriter',
 				description:
-					'Lorem ipsum dolor sit, amet consectetur adipisicing elit. Veritatis esse aut similique reprehenderit fuga cupiditate porro. Nostrum, ipsam perferendis! Fuga nisi nostrum odit nulla quia, sint harum eligendi recusandae dolore!',
+					'Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta.',
 				status: 0,
 				hide: false,
 				id: 5,
 			},
 			{
-				title: 'Create a React Component',
+				title: 'Learn jQuery',
 				description:
-					'Lorem ipsum dolor sit, amet consectetur adipisicing elit. Veritatis esse aut similique reprehenderit fuga cupiditate porro. Nostrum, ipsam perferendis! Fuga nisi nostrum odit nulla quia, sint harum eligendi recusandae dolore!',
+					'Li Europan lingues es membres del sam familie. Lor separat existentie es un myth. Por scientie, musica, sport etc, litot Europa usa li sam vocabular. Li lingues differe solmen in li grammatica, li pronunciation e li plu commun vocabules. Omnicos directe al desirabilite de un nov lingua franca: On refusa',
 				status: 0,
 				hide: false,
 				id: 14,
 			},
 			{
-				title: 'Create a React Component',
+				title: 'Learn Javascript',
 				description:
-					'Lorem ipsum dolor sit, amet consectetur adipisicing elit. Veritatis esse aut similique reprehenderit fuga cupiditate porro. Nostrum, ipsam perferendis! Fuga nisi nostrum odit nulla quia, sint harum eligendi recusandae dolore!',
+					'The European languages are members of the same family. Their separate existence is a myth. For science, music, sport, etc, Europe uses the same vocabulary. The languages only differ in their grammar, their pronunciation and their most common words. Everyone realizes why a new common language would be desirable: one',
 				status: 0,
 				hide: false,
 				id: 15,
@@ -73,14 +73,22 @@ export default function ToDoApp() {
 		]);
 	}, []);
 
-	function handleChangeStatus(id) {
-		const newTodos = todos.map((todo) => {
-			if (todo.id === id) {
-				todo.status = todo.status === 2 ? 0 : todo.status + 1;
-			}
-			return todo;
-		});
-		setTodos(newTodos);
+	function handleHideTodos() {
+		const newHideTodos = !hideTodos;
+		setHideTodos(newHideTodos);
+		if (newHideTodos) {
+			const newTodos = todos.map((todo, index) => {
+				if (index >= maxDisplayTodos) todo.hide = false;
+				return todo;
+			});
+			setTodos(newTodos);
+		} else {
+			const newTodos = todos.map((todo, index) => {
+				if (index >= maxDisplayTodos) todo.hide = true;
+				return todo;
+			});
+			setTodos(newTodos);
+		}
 	}
 
 	function handleSearchChange(evt) {
@@ -132,22 +140,14 @@ export default function ToDoApp() {
 		setTodos(newTodos);
 	}
 
-	function handleHideTodos() {
-		const newHideTodos = !hideTodos;
-		setHideTodos(newHideTodos);
-		if (newHideTodos) {
-			const newTodos = todos.map((todo, index) => {
-				if (index >= maxDisplayTodos) todo.hide = false;
-				return todo;
-			});
-			setTodos(newTodos);
-		} else {
-			const newTodos = todos.map((todo, index) => {
-				if (index >= maxDisplayTodos) todo.hide = true;
-				return todo;
-			});
-			setTodos(newTodos);
-		}
+	function handleChangeStatus(id) {
+		const newTodos = todos.map((todo) => {
+			if (todo.id === id) {
+				todo.status = todo.status === 2 ? 0 : todo.status + 1;
+			}
+			return todo;
+		});
+		setTodos(newTodos);
 	}
 
 	return (

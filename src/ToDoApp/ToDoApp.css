@@ -6,6 +6,19 @@
 	color: var(--black);
 }
 
+.grey_text {
+	color: var(--grey);
+}
+.red_text {
+	color: var(--red);
+}
+.blue_text {
+	color: var(--blue);
+}
+.green_text {
+	color: var(--green);
+}
+
 .ToDoApp input,
 .ToDoApp textarea,
 .ToDoApp select {
@@ -33,6 +46,8 @@
 	border: 1px solid var(--black);
 }
 
+/* @ToDoList Layout */
+
 .ToDoList {
 	height: 100%;
 	display: flex;
@@ -40,6 +55,10 @@
 	justify-content: center;
 	align-items: center;
 	margin-top: 0.5rem;
+}
+
+.ToDoList__action {
+	width: 100%;
 }
 
 /* @ToDo Card Layout */
@@ -84,19 +103,6 @@
 	cursor: pointer;
 }
 
-.grey_text {
-	color: var(--grey);
-}
-.red_text {
-	color: var(--red);
-}
-.blue_text {
-	color: var(--blue);
-}
-.green_text {
-	color: var(--green);
-}
-
 @media screen and (max-width: 900px) {
 	.ToDoCard {
 		width: 100%;
@@ -138,8 +144,3 @@
 .ToDoForm__action button {
 	margin-left: auto;
 }
-
-.ToDoList__action {
-	width: 100%;
-}
-

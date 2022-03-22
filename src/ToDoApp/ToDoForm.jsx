@@ -5,9 +5,9 @@ function ToDoForm({
 	title: titleProps,
 	description: descriptionProps,
 	status: statusProps,
-	handleAddTodo,
-	closeForm,
 	id,
+	closeForm,
+	handleAddTodo,
 }) {
 	const [title, setTitle] = React.useState(titleProps);
 	const [description, setDescription] = React.useState(descriptionProps);
@@ -25,6 +25,13 @@ function ToDoForm({
 		setStatus(parseInt(e.target.value));
 	}
 
+	function handleCloseForm() {
+		setTitle('');
+		setDescription('');
+		setStatus(0);
+		closeForm();
+	}
+
 	function handleFormSubmit(e) {
 		e.preventDefault();
 		if (title === '' || description === '') {
@@ -36,13 +43,6 @@ function ToDoForm({
 		setTitle('');
 		setDescription('');
 		setStatus(0);
-	}
-
-	function handleCloseForm() {
-		setTitle('');
-		setDescription('');
-		setStatus(0);
-		closeForm();
 	}
 
 	return (

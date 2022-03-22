@@ -1868,7 +1868,7 @@ Bullet lists nested within numbered list:
 
 A [link](http://example.com).
 
-![Image](Icon-pictures.png "icon")
+![Image](github.png "icon")
 
 > Markdown uses email-style
 characters for blockquoting.
