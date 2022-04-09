@@ -1907,9 +1907,27 @@ const useHash = () => {
 
 function App() {
 	const [hash, setLocationHash] = useHash();
+	const namespace = 'Nuclear Reactor';
 	React.useEffect(() => {
 		setLocationHash('/');
 	}, []);
+
+	function getAppNameFromHash(hash) {
+		const hashString = hash.split('/')[1];
+		const appName = hashString
+			.split('-')
+			.map((curr) => (curr.length > 0 ? curr[0].toUpperCase() + curr.substring(1) : ''))
+			.join(' ')
+			.trim();
+		return appName;
+	}
+
+	React.useEffect(() => {
+		const subAppname = getAppNameFromHash(hash);
+		if (!subAppname) document.title = namespace;
+		else document.title = namespace + ' - ' + subAppname;
+	}, [hash]);
+
 	return (
 		<div className="App">
 			{hash === '/' && (
