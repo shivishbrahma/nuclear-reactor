@@ -12,3 +12,5 @@ We need to install 'date-fns' and 'tinycolor2' to use this component.
 - ActivityCalendar.css
 - styles.module.css
 - utils.js
+
+Visit the blog @ <https://dev.to/shivishbrahma/designing-an-activity-calendar-in-react-47k2>
