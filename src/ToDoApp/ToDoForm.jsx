@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import { FaTimes } from 'react-icons/fa';
 
 function ToDoForm({
@@ -82,6 +83,15 @@ ToDoForm.defaultProps = {
 	description: '',
 	status: 0,
 	id: -1,
+};
+
+ToDoForm.propTypes = {
+    title: PropTypes.string,
+    description: PropTypes.string,
+    status: PropTypes.number,
+    id: PropTypes.number,
+    closeForm: PropTypes.func,
+    handleAddTodo: PropTypes.func,
 };
 
 export default ToDoForm;
