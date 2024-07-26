@@ -18,6 +18,10 @@ export default function Home({ setLocationHash }) {
 			name: 'TodoApp',
 			link: '/todo-app',
 		},
+        {
+            name: 'OTPInput',
+            link: '/otp-input',
+        },
 	];
 
 	function handleLinkClick(e) {
