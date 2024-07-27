@@ -1,0 +1,13 @@
+{
+  "files": {
+    "main.css": "/nuclear-reactor/static/css/main.7025f5ce.css",
+    "main.js": "/nuclear-reactor/static/js/main.1f9cd71d.js",
+    "index.html": "/nuclear-reactor/index.html",
+    "main.7025f5ce.css.map": "/nuclear-reactor/static/css/main.7025f5ce.css.map",
+    "main.1f9cd71d.js.map": "/nuclear-reactor/static/js/main.1f9cd71d.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.7025f5ce.css",
+    "static/js/main.1f9cd71d.js"
+  ]
+}
