@@ -1,0 +1,13 @@
+{
+  "files": {
+    "main.css": "/nuclear-react/static/css/main.7025f5ce.css",
+    "main.js": "/nuclear-react/static/js/main.5e5e275a.js",
+    "index.html": "/nuclear-react/index.html",
+    "main.7025f5ce.css.map": "/nuclear-react/static/css/main.7025f5ce.css.map",
+    "main.5e5e275a.js.map": "/nuclear-react/static/js/main.5e5e275a.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.7025f5ce.css",
+    "static/js/main.5e5e275a.js"
+  ]
+}
